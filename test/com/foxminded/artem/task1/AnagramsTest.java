@@ -21,15 +21,16 @@ class AnagramsTest {
 	}
 
 	@Test
-	void reverseEmptyString_shouldReturnEmptyString() {
+	void reverseEmptyString_shouldReturnEmptyString_whenEmptyStringIsGivenAsAnImput() {
 		// Given
 		Anagrams anagrams = new Anagrams();
+		String emptyString = "";
 
 		// When
-		String revertString = anagrams.reverceAllLettersOnlyInInput("");
+		String revertString = anagrams.reverceAllLettersOnlyInInput(emptyString);
 
 		// Then
-		assertTrue(revertString.equals(""));
+		assertTrue(revertString.equals(emptyString));
 	}
 
 	@Test
