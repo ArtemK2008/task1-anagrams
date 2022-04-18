@@ -39,23 +39,5 @@ public class Anagrams {
 			sb.append(" ");
 		}
 		return sb.toString().trim();
-	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Anagrams test = new Anagrams();
-		String input0 = "hello wi!ll it work";
-		String input1 = "hello i am testing this! string";
-		String input2 = "hone last test!";
-		System.out.println(input0);
-		System.out.println(test.revertInput(input0));
-		System.out.println();
-		System.out.println(input1);
-		System.out.println(test.revertInput(input1));
-		System.out.println();
-		System.out.println(input2);
-		System.out.println(test.revertInput(input2));
-
-	}
-
+	}	
 }
