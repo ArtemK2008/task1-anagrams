@@ -2,27 +2,28 @@ package com.foxminded.artem.task1;
 
 public class Anagrams {
 
-	public String revertOneWord(String word) {
-		char[] wordAsChars = word.toCharArray();
-		int r = wordAsChars.length - 1, l = 0;
-		while (l < r) {
-			if (!Character.isAlphabetic(wordAsChars[l]))
-				l++;
-			else if (!Character.isAlphabetic(wordAsChars[r]))
-				r--;
-			else  {
-				char tmp = wordAsChars[l];
-				wordAsChars[l] = wordAsChars[r];
-				wordAsChars[r] = tmp;
-                l++;
-                r--;
+	public String revertOneWord(String word) {		
+			char[] wordAsChars = word.toCharArray();
+			int r = wordAsChars.length - 1, l = 0;
+			while (l < r) {
+				if (!Character.isAlphabetic(wordAsChars[l]))
+					l++;
+				else if (!Character.isAlphabetic(wordAsChars[r]))
+					r--;
+				else {
+					char tmp = wordAsChars[l];
+					wordAsChars[l] = wordAsChars[r];
+					wordAsChars[r] = tmp;
+					l++;
+					r--;
+				}
+
 			}
-		}
 			StringBuilder sb = new StringBuilder();
-			for (char c: wordAsChars) {
+			for (char c : wordAsChars) {
 				sb.append(c);
 			}
-		return sb.toString();
+			return sb.toString();		
 	}
 
 	public String[] splitInputByWord(String input) {
@@ -31,6 +32,9 @@ public class Anagrams {
 	}
 
 	public String revertInput(String Input) {
+		if (Input == null) {
+			throw new IllegalArgumentException("wrong input");
+		} else {
 		StringBuilder sb = new StringBuilder();
 		String[] getInputSplitted = splitInputByWord(Input);
 		for (String s : getInputSplitted) {
@@ -39,23 +43,6 @@ public class Anagrams {
 			sb.append(" ");
 		}
 		return sb.toString().trim();
+		}
 	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Anagrams test = new Anagrams();
-		String input0 = "hello wi!ll it work";
-		String input1 = "hello i am testing this! string";
-		String input2 = "hone last test!";
-		System.out.println(input0);
-		System.out.println(test.revertInput(input0));
-		System.out.println();
-		System.out.println(input1);
-		System.out.println(test.revertInput(input1));
-		System.out.println();
-		System.out.println(input2);
-		System.out.println(test.revertInput(input2));
-
-	}
-
 }
