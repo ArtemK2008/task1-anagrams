@@ -1,6 +1,7 @@
 package com.foxminded.artem.task1;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +15,7 @@ class AnagramsTest {
 		Anagrams anagrams = new Anagrams();
 
 		// When
-		String reversedString = anagrams.reverseLettersOnlyInWholeString("hello word");
+		String reversedString = anagrams.reverceLettersOnly("hello word");
 
 		// Then
 		assertTrue(reversedString.equals("olleh drow"));
@@ -27,7 +28,7 @@ class AnagramsTest {
 		String emptyString = "";
 
 		// When
-		String reversedString = anagrams.reverseLettersOnlyInWholeString(emptyString);
+		String reversedString = anagrams.reverceLettersOnly(emptyString);
 
 		// Then
 		assertTrue(reversedString.equals(emptyString));
@@ -39,7 +40,7 @@ class AnagramsTest {
 		Anagrams anagrams = new Anagrams();
 
 		// When
-		String reversedString = anagrams.reverseLettersOnlyInWholeString("hello word hello");
+		String reversedString = anagrams.reverceLettersOnly("hello word hello");
 
 		// Then
 		assertTrue(reversedString.equals("olleh drow olleh"));
@@ -52,7 +53,7 @@ class AnagramsTest {
 		String expectedAndGiven = "1";
 
 		// When
-		String reversedString = anagrams.reverseLettersOnlyInWholeString(expectedAndGiven);
+		String reversedString = anagrams.reverceLettersOnly(expectedAndGiven);
 
 		// Then
 		assertTrue(reversedString.equals(expectedAndGiven));
@@ -65,7 +66,7 @@ class AnagramsTest {
 		String expectedAndGiven = "h";
 
 		// When
-		String reversedString = anagrams.reverseLettersOnlyInWholeString(expectedAndGiven);
+		String reversedString = anagrams.reverceLettersOnly(expectedAndGiven);
 
 		// Then
 		assertTrue(reversedString.equals(expectedAndGiven));
@@ -78,7 +79,7 @@ class AnagramsTest {
 		String expectedAndGiven = "#";
 
 		// When
-		String reversedString = anagrams.reverseLettersOnlyInWholeString(expectedAndGiven);
+		String reversedString = anagrams.reverceLettersOnly(expectedAndGiven);
 
 		// Then
 		assertTrue(reversedString.equals(expectedAndGiven));
@@ -91,7 +92,7 @@ class AnagramsTest {
 		String expectedAndGiven = "aaaa";
 
 		// When
-		String reversedString = anagrams.reverseLettersOnlyInWholeString(expectedAndGiven);
+		String reversedString = anagrams.reverceLettersOnly(expectedAndGiven);
 
 		// Then
 		assertTrue(reversedString.equals(expectedAndGiven));
@@ -104,7 +105,7 @@ class AnagramsTest {
 		String expectedAndGiven = "1111";
 
 		// When
-		String reversedString = anagrams.reverseLettersOnlyInWholeString(expectedAndGiven);
+		String reversedString = anagrams.reverceLettersOnly(expectedAndGiven);
 
 		// Then
 		assertTrue(reversedString.equals(expectedAndGiven));
@@ -117,7 +118,7 @@ class AnagramsTest {
 		String expectedAndGiven = "#$%^&";
 
 		// When
-		String reversedString = anagrams.reverseLettersOnlyInWholeString(expectedAndGiven);
+		String reversedString = anagrams.reverceLettersOnly(expectedAndGiven);
 
 		// Then
 		assertTrue(reversedString.equals(expectedAndGiven));
@@ -129,7 +130,7 @@ class AnagramsTest {
 		Anagrams anagrams = new Anagrams();
 
 		// When
-		String reversedString = anagrams.reverseLettersOnlyInWholeString("AaAaAa");
+		String reversedString = anagrams.reverceLettersOnly("AaAaAa");
 
 		// Then
 		assertTrue(reversedString.equals("aAaAaA"));
@@ -141,7 +142,7 @@ class AnagramsTest {
 		Anagrams anagrams = new Anagrams();
 
 		// When
-		String reversedString = anagrams.reverseLettersOnlyInWholeString("H#E$L%L^o!");
+		String reversedString = anagrams.reverceLettersOnly("H#E$L%L^o!");
 
 		// Then
 		assertTrue(reversedString.equals("o#L$L%E^H!"));
@@ -154,7 +155,7 @@ class AnagramsTest {
 		String expectedAndGiven = "1!2! !3!4";
 
 		// When
-		String reversedString = anagrams.reverseLettersOnlyInWholeString(expectedAndGiven);
+		String reversedString = anagrams.reverceLettersOnly(expectedAndGiven);
 
 		// Then
 		assertTrue(reversedString.equals(expectedAndGiven));
@@ -166,7 +167,7 @@ class AnagramsTest {
 		Anagrams anagrams = new Anagrams();
 
 		// When
-		String reversedString = anagrams.reverseLettersOnlyInWholeString("hello hello hello");
+		String reversedString = anagrams.reverceLettersOnly("hello hello hello");
 
 		// Then
 		assertTrue(reversedString.equals("olleh olleh olleh"));
@@ -178,7 +179,7 @@ class AnagramsTest {
 		Anagrams anagrams = new Anagrams();
 
 		// When
-		String reversedString = anagrams.reverseLettersOnlyInWholeString("HE!llo%^ w2or%%Ld! 29");
+		String reversedString = anagrams.reverceLettersOnly("HE!llo%^ w2or%%Ld! 29");
 
 		// Then
 		assertTrue(reversedString.equals("ol!lEH%^ d2Lr%%ow! 29"));
@@ -190,7 +191,7 @@ class AnagramsTest {
 		Anagrams anagrams = new Anagrams();
 
 		// When
-		String reversedString = anagrams.reverseLettersOnlyInWholeString("hell32o wo33rld");
+		String reversedString = anagrams.reverceLettersOnly("hell32o wo33rld");
 
 		// Then
 		assertTrue(reversedString.equals("olle32h dl33row"));
@@ -202,7 +203,7 @@ class AnagramsTest {
 		Anagrams anagrams = new Anagrams();
 
 		// When
-		String reversedString = anagrams.reverseLettersOnlyInWholeString("hell32o   wo33rld");
+		String reversedString = anagrams.reverceLettersOnly("hell32o   wo33rld");
 
 		// Then
 		assertTrue(reversedString.equals("olle32h   dl33row"));
@@ -212,6 +213,6 @@ class AnagramsTest {
 	void reverseNullString_shouldThrowIAException_whenNullIsGivenAsAnImput() {
 		Anagrams anagrams = new Anagrams();
 		String reversedString = null;
-		assertThrows(IllegalArgumentException.class, () -> anagrams.reverseLettersOnlyInWholeString(reversedString));
+		assertThrows(IllegalArgumentException.class, () -> anagrams.reverceLettersOnly(reversedString));
 	}
 }

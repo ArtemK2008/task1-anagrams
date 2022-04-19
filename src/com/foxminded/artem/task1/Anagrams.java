@@ -31,7 +31,7 @@ public class Anagrams {
 		return splittedInput;
 	}
 
-	public String reverseLettersOnlyInWholeString(String Input) {
+	public String reverceLettersOnly(String Input) {
 		if (Input == null) {
 			throw new IllegalArgumentException("wrong input");
 		} else {
