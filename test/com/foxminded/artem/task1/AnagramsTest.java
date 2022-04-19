@@ -14,10 +14,10 @@ class AnagramsTest {
 		Anagrams anagrams = new Anagrams();
 
 		// When
-		String revertString = anagrams.reverceAllLettersOnlyInInput("hello word");
+		String reversedString = anagrams.reverseLettersOnlyInWholeString("hello word");
 
 		// Then
-		assertTrue(revertString.equals("olleh drow"));
+		assertTrue(reversedString.equals("olleh drow"));
 	}
 
 	@Test
@@ -27,10 +27,10 @@ class AnagramsTest {
 		String emptyString = "";
 
 		// When
-		String revertString = anagrams.reverceAllLettersOnlyInInput(emptyString);
+		String reversedString = anagrams.reverseLettersOnlyInWholeString(emptyString);
 
 		// Then
-		assertTrue(revertString.equals(emptyString));
+		assertTrue(reversedString.equals(emptyString));
 	}
 
 	@Test
@@ -39,10 +39,10 @@ class AnagramsTest {
 		Anagrams anagrams = new Anagrams();
 
 		// When
-		String revertString = anagrams.reverceAllLettersOnlyInInput("hello word hello");
+		String reversedString = anagrams.reverseLettersOnlyInWholeString("hello word hello");
 
 		// Then
-		assertTrue(revertString.equals("olleh drow olleh"));
+		assertTrue(reversedString.equals("olleh drow olleh"));
 	}
 
 	@Test
@@ -52,10 +52,10 @@ class AnagramsTest {
 		String expectedAndGiven = "1";
 
 		// When
-		String revertString = anagrams.reverceAllLettersOnlyInInput(expectedAndGiven);
+		String reversedString = anagrams.reverseLettersOnlyInWholeString(expectedAndGiven);
 
 		// Then
-		assertTrue(revertString.equals(expectedAndGiven));
+		assertTrue(reversedString.equals(expectedAndGiven));
 	}
 
 	@Test
@@ -65,10 +65,10 @@ class AnagramsTest {
 		String expectedAndGiven = "h";
 
 		// When
-		String revertString = anagrams.reverceAllLettersOnlyInInput(expectedAndGiven);
+		String reversedString = anagrams.reverseLettersOnlyInWholeString(expectedAndGiven);
 
 		// Then
-		assertTrue(revertString.equals(expectedAndGiven));
+		assertTrue(reversedString.equals(expectedAndGiven));
 	}
 
 	@Test
@@ -78,10 +78,10 @@ class AnagramsTest {
 		String expectedAndGiven = "#";
 
 		// When
-		String revertString = anagrams.reverceAllLettersOnlyInInput(expectedAndGiven);
+		String reversedString = anagrams.reverseLettersOnlyInWholeString(expectedAndGiven);
 
 		// Then
-		assertTrue(revertString.equals(expectedAndGiven));
+		assertTrue(reversedString.equals(expectedAndGiven));
 	}
 
 	@Test
@@ -91,10 +91,10 @@ class AnagramsTest {
 		String expectedAndGiven = "aaaa";
 
 		// When
-		String revertString = anagrams.reverceAllLettersOnlyInInput(expectedAndGiven);
+		String reversedString = anagrams.reverseLettersOnlyInWholeString(expectedAndGiven);
 
 		// Then
-		assertTrue(revertString.equals(expectedAndGiven));
+		assertTrue(reversedString.equals(expectedAndGiven));
 	}
 
 	@Test
@@ -104,10 +104,10 @@ class AnagramsTest {
 		String expectedAndGiven = "1111";
 
 		// When
-		String revertString = anagrams.reverceAllLettersOnlyInInput(expectedAndGiven);
+		String reversedString = anagrams.reverseLettersOnlyInWholeString(expectedAndGiven);
 
 		// Then
-		assertTrue(revertString.equals(expectedAndGiven));
+		assertTrue(reversedString.equals(expectedAndGiven));
 	}
 
 	@Test
@@ -117,34 +117,34 @@ class AnagramsTest {
 		String expectedAndGiven = "#$%^&";
 
 		// When
-		String revertString = anagrams.reverceAllLettersOnlyInInput(expectedAndGiven);
+		String reversedString = anagrams.reverseLettersOnlyInWholeString(expectedAndGiven);
 
 		// Then
-		assertTrue(revertString.equals(expectedAndGiven));
+		assertTrue(reversedString.equals(expectedAndGiven));
 	}
 
 	@Test
-	void revertTextWithLetterInDifferentCase_shouldReturnEveryLetterReversed_whenInputIsLetterInDifferentCase() {
+	void reverseTextWithLetterInDifferentCase_shouldReturnEveryLetterReversed_whenInputIsLetterInDifferentCase() {
 		// Given
 		Anagrams anagrams = new Anagrams();
 
 		// When
-		String revertString = anagrams.reverceAllLettersOnlyInInput("AaAaAa");
+		String reversedString = anagrams.reverseLettersOnlyInWholeString("AaAaAa");
 
 		// Then
-		assertTrue(revertString.equals("aAaAaA"));
+		assertTrue(reversedString.equals("aAaAaA"));
 	}
 
 	@Test
-	void revertOnlyLetters_shouldOnlyRevertLettersButSpecialCharsMustStay_whenInputIsLettersMixedWithSpecialChars() {
+	void reverseOnlyLetters_shouldOnlyRevertLettersButSpecialCharsMustStay_whenInputIsLettersMixedWithSpecialChars() {
 		// Given
 		Anagrams anagrams = new Anagrams();
 
 		// When
-		String revertString = anagrams.reverceAllLettersOnlyInInput("H#E$L%L^o!");
+		String reversedString = anagrams.reverseLettersOnlyInWholeString("H#E$L%L^o!");
 
 		// Then
-		assertTrue(revertString.equals("o#L$L%E^H!"));
+		assertTrue(reversedString.equals("o#L$L%E^H!"));
 	}
 
 	@Test
@@ -154,22 +154,22 @@ class AnagramsTest {
 		String expectedAndGiven = "1!2! !3!4";
 
 		// When
-		String revertString = anagrams.reverceAllLettersOnlyInInput(expectedAndGiven);
+		String reversedString = anagrams.reverseLettersOnlyInWholeString(expectedAndGiven);
 
 		// Then
-		assertTrue(revertString.equals(expectedAndGiven));
+		assertTrue(reversedString.equals(expectedAndGiven));
 	}
 
 	@Test
-	void reverceAllLettersInMultipleWords_shouldReverceEveryLetterInEachWord_whenInputIsLettersAndWhitespacesOnly() {
+	void reverseAllLettersInMultipleWords_shouldReverseEveryLetterInEachWord_whenInputIsLettersAndWhitespacesOnly() {
 		// Given
 		Anagrams anagrams = new Anagrams();
 
 		// When
-		String revertString = anagrams.reverceAllLettersOnlyInInput("hello hello hello");
+		String reversedString = anagrams.reverseLettersOnlyInWholeString("hello hello hello");
 
 		// Then
-		assertTrue(revertString.equals("olleh olleh olleh"));
+		assertTrue(reversedString.equals("olleh olleh olleh"));
 	}
 
 	@Test
@@ -178,10 +178,10 @@ class AnagramsTest {
 		Anagrams anagrams = new Anagrams();
 
 		// When
-		String revertString = anagrams.reverceAllLettersOnlyInInput("HE!llo%^ w2or%%Ld! 29");
+		String reversedString = anagrams.reverseLettersOnlyInWholeString("HE!llo%^ w2or%%Ld! 29");
 
 		// Then
-		assertTrue(revertString.equals("ol!lEH%^ d2Lr%%ow! 29"));
+		assertTrue(reversedString.equals("ol!lEH%^ d2Lr%%ow! 29"));
 	}
 
 	@Test
@@ -190,10 +190,10 @@ class AnagramsTest {
 		Anagrams anagrams = new Anagrams();
 
 		// When
-		String revertString = anagrams.reverceAllLettersOnlyInInput("hell32o wo33rld");
+		String reversedString = anagrams.reverseLettersOnlyInWholeString("hell32o wo33rld");
 
 		// Then
-		assertTrue(revertString.equals("olle32h dl33row"));
+		assertTrue(reversedString.equals("olle32h dl33row"));
 	}
 
 	@Test
@@ -202,16 +202,16 @@ class AnagramsTest {
 		Anagrams anagrams = new Anagrams();
 
 		// When
-		String revertString = anagrams.reverceAllLettersOnlyInInput("hell32o   wo33rld");
+		String reversedString = anagrams.reverseLettersOnlyInWholeString("hell32o   wo33rld");
 
 		// Then
-		assertTrue(revertString.equals("olle32h   dl33row"));
+		assertTrue(reversedString.equals("olle32h   dl33row"));
 	}
 
 	@Test
 	void reverseNullString_shouldThrowIAException_whenNullIsGivenAsAnImput() {
 		Anagrams anagrams = new Anagrams();
-		String revertString = null;
-		assertThrows(IllegalArgumentException.class, () -> anagrams.reverceAllLettersOnlyInInput(revertString));
+		String reversedString = null;
+		assertThrows(IllegalArgumentException.class, () -> anagrams.reverseLettersOnlyInWholeString(reversedString));
 	}
 }
