@@ -2,7 +2,22 @@ package com.foxminded.artem.task1;
 
 public class Anagrams {
 
-	private String reverseSingleWordLettersOnly(String word) {
+	public String reverceLettersOnlyEachWord(String Input) {
+		if (Input == null) {
+			throw new IllegalArgumentException("wrong input");
+		} else {
+			StringBuilder sb = new StringBuilder();
+			String[] getInputSplitted = splitEveryWordBySpace(Input);
+			for (String s : getInputSplitted) {
+				s = reverseLettersOnlyOneWord(s);
+				sb.append(s);
+				sb.append(" ");
+			}
+			return sb.toString().trim();
+		}
+	}
+
+	private String reverseLettersOnlyOneWord(String word) {
 		char[] wordAsChars = word.toCharArray();
 		int r = wordAsChars.length - 1, l = 0;
 		while (l < r) {
@@ -29,20 +44,5 @@ public class Anagrams {
 	private String[] splitEveryWordBySpace(String input) {
 		String[] splittedInput = input.trim().split(" ");
 		return splittedInput;
-	}
-
-	public String reverceLettersOnly(String Input) {
-		if (Input == null) {
-			throw new IllegalArgumentException("wrong input");
-		} else {
-			StringBuilder sb = new StringBuilder();
-			String[] getInputSplitted = splitEveryWordBySpace(Input);
-			for (String s : getInputSplitted) {
-				s = reverseSingleWordLettersOnly(s);
-				sb.append(s);
-				sb.append(" ");
-			}
-			return sb.toString().trim();
-		}
 	}
 }
