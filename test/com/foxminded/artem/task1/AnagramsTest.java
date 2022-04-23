@@ -1,151 +1,66 @@
 package com.foxminded.artem.task1;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class AnagramsTest {
-
-	@Test
-	void reverseOnlyLettersWithWhitespace_shouldReturnReversedLettersInEveryWordWithWhitespaceBetween_WhenInputIsTwoWords()
-
-	{
-		// Given
-		Anagrams anagrams = new Anagrams();
-
-		// When
-		String reversedString = anagrams.reverceLettersOnlyEachWord("hello word");
-
-		// Then
-		assertTrue(reversedString.equals("olleh drow"));
-	}
-
+	
 	@Test
 	void reverseEmptyString_shouldReturnEmptyString_whenEmptyStringIsGivenAsAnImput() {
 		// Given
 		Anagrams anagrams = new Anagrams();
-		String emptyString = "";
-
+		String expected = "";
 		// When
-		String reversedString = anagrams.reverceLettersOnlyEachWord(emptyString);
-
+		String actual = anagrams.reverceLettersOnlyEachWord("");
 		// Then
-		assertTrue(reversedString.equals(emptyString));
+		assertEquals(expected,actual);
 	}
-
-	@Test
-	void reverseOnlyLettersWithMultipleWhitespaces_shouldReturnReversedLettersInEveryWordWithWhitespacesBetween_WhenInputHasMoreThenTwoWords() {
+	
+	@ParameterizedTest
+	@CsvSource({
+		"aaaa,aaaa" ,
+		"AaAa,aAaA" ,
+	"hello word,olleh drow" ,
+	"hello word hello,olleh drow olleh",
+	"hello hello hello,olleh olleh olleh",
+	
+	})
+	void reverseOnlyLetters_shouldReturnReversedLettersOnlyInEveryWord_whenInputsAreLettersOnly(String given, String output)
+	{
 		// Given
 		Anagrams anagrams = new Anagrams();
-
 		// When
-		String reversedString = anagrams.reverceLettersOnlyEachWord("hello word hello");
-
+		String actual = anagrams.reverceLettersOnlyEachWord(given);
+		String expected = output;
 		// Then
-		assertTrue(reversedString.equals("olleh drow olleh"));
-	}
-
-	@Test
-	void reverseOnlyNumber_shouldReturnSameNumber_whenInputIsOneNumberOnly() {
-		// Given
+		assertEquals(expected,actual);
+	}	
+		
+	@ParameterizedTest
+	@ValueSource(strings = {"1","h","#", "1111","#$%^&"})
+	void reverseOnlyNumber_shouldReturnTheSameString_whenInputAreNotLetters(String argString)
+	{
 		Anagrams anagrams = new Anagrams();
-		String expectedAndGiven = "1";
-
-		// When
-		String reversedString = anagrams.reverceLettersOnlyEachWord(expectedAndGiven);
-
-		// Then
-		assertTrue(reversedString.equals(expectedAndGiven));
-	}
-
-	@Test
-	void reverseOnlyOneLetter_shouldReturnSameLetter_whenInputIsOneLetterOnly() {
-		// Given
-		Anagrams anagrams = new Anagrams();
-		String expectedAndGiven = "h";
-
-		// When
-		String reversedString = anagrams.reverceLettersOnlyEachWord(expectedAndGiven);
-
-		// Then
-		assertTrue(reversedString.equals(expectedAndGiven));
-	}
-
-	@Test
-	void reverseOnlyOneSpecialChar_shouldReturnSameChar_whenInputIsOneSpecialCharacterOnly() {
-		// Given
-		Anagrams anagrams = new Anagrams();
-		String expectedAndGiven = "#";
-
-		// When
-		String reversedString = anagrams.reverceLettersOnlyEachWord(expectedAndGiven);
-
-		// Then
-		assertTrue(reversedString.equals(expectedAndGiven));
-	}
-
-	@Test
-	void reverseSameLetterMultipleTimes_shouldReturnSameCharSequence_whenInputIsMultipleRepetitionOfOneChar() {
-		// Given
-		Anagrams anagrams = new Anagrams();
-		String expectedAndGiven = "aaaa";
-
-		// When
-		String reversedString = anagrams.reverceLettersOnlyEachWord(expectedAndGiven);
-
-		// Then
-		assertTrue(reversedString.equals(expectedAndGiven));
-	}
-
-	@Test
-	void reverseSameNumberMultipleTimes_shouldReturnSameNumberSequence_whenInputIsMultipleRepetitionOfOneNumber() {
-		// Given
-		Anagrams anagrams = new Anagrams();
-		String expectedAndGiven = "1111";
-
-		// When
-		String reversedString = anagrams.reverceLettersOnlyEachWord(expectedAndGiven);
-
-		// Then
-		assertTrue(reversedString.equals(expectedAndGiven));
-	}
-
-	@Test
-	void reverseSameSpecCharMultipleTimes_shouldReturnSameSpecCharSequence_whenInputIsMultipleRepetitionOfOneSpecChar() {
-		// Given
-		Anagrams anagrams = new Anagrams();
-		String expectedAndGiven = "#$%^&";
-
-		// When
-		String reversedString = anagrams.reverceLettersOnlyEachWord(expectedAndGiven);
-
-		// Then
-		assertTrue(reversedString.equals(expectedAndGiven));
-	}
-
-	@Test
-	void reverseTextWithLetterInDifferentCase_shouldReturnEveryLetterReversed_whenInputIsLetterInDifferentCase() {
-		// Given
-		Anagrams anagrams = new Anagrams();
-
-		// When
-		String reversedString = anagrams.reverceLettersOnlyEachWord("AaAaAa");
-
-		// Then
-		assertTrue(reversedString.equals("aAaAaA"));
+		String expected = argString;
+		
+		String actual = anagrams.reverceLettersOnlyEachWord(argString);
+		
+		assertEquals(expected,actual);
 	}
 
 	@Test
 	void reverseOnlyLetters_shouldOnlyRevertLettersButSpecialCharsMustStay_whenInputIsLettersMixedWithSpecialChars() {
 		// Given
 		Anagrams anagrams = new Anagrams();
-
+		String expected = "o#L$L%E^H!";
 		// When
-		String reversedString = anagrams.reverceLettersOnlyEachWord("H#E$L%L^o!");
-
+		String actual = anagrams.reverceLettersOnlyEachWord("H#E$L%L^o!");
 		// Then
-		assertTrue(reversedString.equals("o#L$L%E^H!"));
+		assertEquals(expected,actual);
 	}
 
 	@Test
@@ -153,60 +68,44 @@ class AnagramsTest {
 		// Given
 		Anagrams anagrams = new Anagrams();
 		String expectedAndGiven = "1!2! !3!4";
-
 		// When
 		String reversedString = anagrams.reverceLettersOnlyEachWord(expectedAndGiven);
-
 		// Then
-		assertTrue(reversedString.equals(expectedAndGiven));
+		assertEquals(expectedAndGiven,reversedString);
 	}
 
-	@Test
-	void reverseAllLettersInMultipleWords_shouldReverseEveryLetterInEachWord_whenInputIsLettersAndWhitespacesOnly() {
-		// Given
-		Anagrams anagrams = new Anagrams();
-
-		// When
-		String reversedString = anagrams.reverceLettersOnlyEachWord("hello hello hello");
-
-		// Then
-		assertTrue(reversedString.equals("olleh olleh olleh"));
-	}
 
 	@Test
 	void reverseOnlyLettersInMultipleWords_shouldReplaceLettersOnlyInEachWord_whenInputIsWordsAndSpecChars() {
 		// Given
 		Anagrams anagrams = new Anagrams();
-
+		String expected = "ol!lEH%^ d2Lr%%ow! 29";
 		// When
-		String reversedString = anagrams.reverceLettersOnlyEachWord("HE!llo%^ w2or%%Ld! 29");
-
+		String actual = anagrams.reverceLettersOnlyEachWord("HE!llo%^ w2or%%Ld! 29");
 		// Then
-		assertTrue(reversedString.equals("ol!lEH%^ d2Lr%%ow! 29"));
+		assertEquals(expected,actual);
 	}
 
 	@Test
 	void reverseOnlyLettersInMultipleWords_shouldReplaceLettersOnlyInEachWord_whenInputIsWordsAndNumbers() {
 		// Given
 		Anagrams anagrams = new Anagrams();
-
+		String expected = "olle32h dl33row";
 		// When
-		String reversedString = anagrams.reverceLettersOnlyEachWord("hell32o wo33rld");
-
+		String actual = anagrams.reverceLettersOnlyEachWord("hell32o wo33rld");
 		// Then
-		assertTrue(reversedString.equals("olle32h dl33row"));
+		assertEquals(expected,actual);
 	}
 
 	@Test
 	void reverseOnlyLettersSeparatedWithMultipleWhitespaces_shouldReturnReversedWordsWithSameWhitespaceNumber_whenInputContainsMultipleWhitespaces() {
 		// Given
 		Anagrams anagrams = new Anagrams();
-
+		String expected = "olle32h   dl33row";
 		// When
-		String reversedString = anagrams.reverceLettersOnlyEachWord("hell32o   wo33rld");
-
+		String actual = anagrams.reverceLettersOnlyEachWord("hell32o   wo33rld");
 		// Then
-		assertTrue(reversedString.equals("olle32h   dl33row"));
+		assertEquals(expected,actual);
 	}
 
 	@Test
