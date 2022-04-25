@@ -1,4 +1,5 @@
-package com.foxminded.artem.task1;
+package com.artem.anagrams;
+
 
 public class Anagrams {
 
