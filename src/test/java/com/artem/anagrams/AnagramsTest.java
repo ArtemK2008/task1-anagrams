@@ -1,4 +1,4 @@
-package com.foxminded.artem.task1;
+package com.artem.anagrams;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
