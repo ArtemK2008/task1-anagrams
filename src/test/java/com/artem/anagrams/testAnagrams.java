@@ -1,11 +1,11 @@
-package com.foxminded.artem.task1;
+package com.artem.anagrams;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-class AnagramsTest {
+class testAnagrams {
 
 	@Test
 	void reverseOnlyLettersWithWhitespace_shouldReturnReversedLettersInEveryWordWithWhitespaceBetween_WhenInputIsTwoWords()

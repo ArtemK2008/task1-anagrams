@@ -1,13 +1,14 @@
-package com.foxminded.artem.task1;
+package com.artem.anagrams;
+
 
 public class Anagrams {
 
-	public String reverceLettersOnlyEachWord(String Input) {
-		if (Input == null) {
+	public String reverceLettersOnlyEachWord(String input) {
+		if (input == null) {
 			throw new IllegalArgumentException("wrong input");
 		} else {
 			StringBuilder sb = new StringBuilder();
-			String[] getInputSplitted = splitEveryWordBySpace(Input);
+			String[] getInputSplitted = splitEveryWordBySpace(input);
 			for (String s : getInputSplitted) {
 				s = reverseLettersOnlyOneWord(s);
 				sb.append(s);
@@ -19,7 +20,8 @@ public class Anagrams {
 
 	private String reverseLettersOnlyOneWord(String word) {
 		char[] wordAsChars = word.toCharArray();
-		int r = wordAsChars.length - 1, l = 0;
+		int r = wordAsChars.length - 1;
+		int l = 0;
 		while (l < r) {
 			if (!Character.isAlphabetic(wordAsChars[l]))
 				l++;
@@ -41,7 +43,6 @@ public class Anagrams {
 	}
 
 	private String[] splitEveryWordBySpace(String input) {
-		String[] splittedInput = input.trim().split(" ");
-		return splittedInput;
+		return input.trim().split(" ");
 	}
 }
